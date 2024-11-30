@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Startseite</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+ <body class="dark-mode"> <!-- Standardmäßig im Dunkelmodus -->
+    
+    <!-- Menü-Button oben links -->
+    <div class="menu-container">
+        <button class="btn menu-btn" onclick="toggleMenu()">Menü</button>
+        <div id="menu" class="menu" style="display: none;">
+            <button class="btn" onclick="location.href='seite1.html'">Über uns</button>
+            <button class="btn" onclick="location.href='seite2.html'">Updates</button>
+            <button class="btn" onclick="location.href='seite3.html'">Shop</button>
+            <button class="btn" onclick="location.href='seite4.html'">Wiki</button>
+        </div>
+    </div>
+    
+    <h1>Willkommen auf der Startseite</h1>
+
+    <!-- Toggle Switch -->
+    <div class="toggle-container">
+        <label class="switch">
+            <input type="checkbox" id="theme-toggle" onclick="toggleTheme()">
+            <span class="slider round"></span>
+        </label>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('mousemove', (event) => {
+            const x = event.clientX;
+            const y = event.clientY;
+            const body = document.body;
+
+            // Create a radial gradient effect around the mouse
+            body.style.background = `radial-gradient(circle at ${x}px ${y}px, var(--hover-color), var(--background-color) 70%)`;
+        });
+
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            const toggleSwitch = document.getElementById('theme-toggle');
+
+            if (toggleSwitch.checked) {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+            } else {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+html, body {
+    height: 100%; /* Volle Höhe für den Body */
+    margin: 0; /* Kein Margin */
+    overflow: auto; /* Scrollen aktivieren */
+}
+:root {
+    --hover-color: rgba(255, 255, 255, 0.5); /* Farbe für den Hellmodus */
+    --background-color: rgba(0, 0, 0, 0.5); /* Hintergrundfarbe für den Hellmodus */
+}
+
+.dark-mode {
+    --hover-color: rgba(255, 255, 255, 0.5); /* Farbe für den Dunkelmodus */
+    --background-color: rgba(18, 18, 18, 0.8); /* Hintergrundfarbe für den Dunkelmodus */
+}
+
+.light-mode {
+    --hover-color: rgba(0, 0, 0, 0.5); /* Farbe für den Hellmodus */
+    --background-color: rgba(255, 255, 255, 0.8); /* Hintergrundfarbe für den Hellmodus */
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: background-color 0.3s ease;
+    cursor: none; /* Mauszeiger ausblenden */
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 16px;
+    color: var(--button-text);
+    background: var(--button-background);
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.btn:hover {
+    transform: scale(1.1); /* Button bei Hover vergrößern */
+    background: linear-gradient(135deg, #0056b3, #007bff);
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.5);
+}
+
+.btn:active {
+    transform: scale(0.95); /* Button bei Klick verkleinern */
+    box-shadow: 0 2px 5px rgba(0, 123, 255, 0.5);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --background-color: #ffffff; /* Heller Hintergrund */
+        --text-color: #000000; /* Dunkle Schrift */
+        --hover-color: rgba(0, 0, 0, 0.1); /* Dunkler Hover-Effekt */
+        --button-background: #007bff; /* Button Hintergrund */
+        --button-text: #000000; /* Button Text */
+    }
+}
+
+.toggle-container {
+    position: absolute; /* Positionierung */
+    top: 20px; /* Abstand vom oberen Rand */
+    right: 20px; /* Abstand vom rechten Rand */
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px; /* Breite des Schalters */
+    height: 34px; /* Höhe des Schalters */
+}
+
+.switch input {
+    opacity: 0; /* Unsichtbar, um nur den Schalter anzuzeigen */
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc; /* Hintergrundfarbe des Schalters */
+    transition: .4s; /* Übergangseffekt */
+    border-radius: 34px; /* Abgerundete Ecken */
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px; /* Höhe des Schalterknopfes */
+    width: 26px; /* Breite des Schalterknopfes */
+    left: 4px; /* Abstand vom linken Rand */
+    bottom: 4px; /* Abstand vom unteren Rand */
+    background-color: white; /* Hintergrundfarbe des Schalterknopfes */
+    border-radius: 50%; /* Rundung des Schalterknopfes */
+    transition: .4s; /* Übergangseffekt */
+}
+
+/* Schalter im Dunkelmodus */
+.dark-mode .slider {
+    background-color: #2196F3; /* Hintergrundfarbe im Dunkelmodus */
+}
+
+.dark-mode .slider:before {
+    transform: translateX(26px); /* Position des Schalterknopfes im Dunkelmodus */
+}
+
+/* Schalter im Hellmodus */
+.light-mode .slider {
+ background-color: #ccc; /* Hintergrundfarbe im Hellmodus */
+}
+
+.light-mode .slider:before {
+    transform: translateX(0); /* Position des Schalterknopfes im Hellmodus */
+}
+
+.menu-container {
+    position: absolute; /* Menü relativ zum Container positionieren */
+    top: 20px; /* Abstand vom oberen Rand */
+    left: 20px; /* Abstand vom linken Rand */
+}
+
+.menu {
+    display: flex;
+    flex-direction: column; /* Buttons untereinander anordnen */
+    position: absolute; /* Menü relativ zum Container positionieren */
+    top: 50px; /* Abstand vom Menü-Button */
+    left: 0; /* Abstand vom linken Rand */
+    z-index: 1000; /* Über anderen Inhalten anzeigen */
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 25px; /* Padding für die Buttons */
+    font-size: 16px;
+    color: var(--button-text);
+    background: var(--button-background);
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+    width: 150px; /* Breite der Buttons */
+    margin-bottom: 10px; /* Abstand zwischen den Buttons */
+}

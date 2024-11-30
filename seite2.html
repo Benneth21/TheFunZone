@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Startseite</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        html, body {
+            margin: 0; /* Kein Margin */
+            overflow: auto; /* Scrollen aktivieren */
+        }
+
+        body {
+            min-height: 100vh; /* Minimale Höhe für den Body auf die Höhe des Viewports setzen */
+            background-color: #282c34; /* Dunkler Hintergrund */
+            color: white; /* Textfarbe */
+            padding: 20px; /* Padding für den Inhalt */
+            box-sizing: border-box; /* Padding und Border in der Höhe berücksichtigen */
+        }
+
+        h1 {
+            margin-bottom: 20px; /* Abstand unter der Überschrift */
+        }
+
+        .article {
+            background-color: rgba(68, 68, 68, 0); /* Durchsichtiger Hintergrund für den Artikel (20% Deckkraft) */
+            border: 1px solid #666; /* Rahmen für den Artikel */
+            padding: 20px; /* Innenabstand */
+            margin: 20px 0; /* Abstand nach oben und unten */
+            cursor: pointer; /* Zeiger bei Hover */
+            transition: background-color 0.5s, transform 0.3s; /* Sanfter Übergang bei Hover */
+            border-radius: 8px; /* Abgerundete Ecken */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Schatten für den Artikel */
+            display: flex; /* Flexbox für zentrierten Inhalt */
+            flex-direction: column; /* Vertikale Anordnung */
+            justify-content: center; /* Zentrieren des Inhalts */
+            align-items: center; /* Zentrieren des Inhalts */
+            min-height: 150px; /* Minimale Höhe für den Artikel */
+        }
+
+        .article:hover {
+            background-color: rgba(85, 85, 85, 0); /* Hintergrundfarbe bei Hover */
+            transform: scale(1.02); /* Leichter Zoom-Effekt bei Hover */
+        }
+
+        .article h2 {
+            margin: 0; /* Kein Abstand für den Titel */
+        }
+
+        .article p {
+            text-align: center; /* Text zentrieren */
+        }
+
+        /* Platz für den Lichteffekt */
+        .effect {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Keine Interaktion mit diesem Element */
+            z-index: 0; /* Hinter den anderen Inhalten */
+        }
+    </style>
+</head>
+<body>
+    <div class="effect" id="effect"></div> <!-- Lichteffekt-Element -->
+
+    <h1>Willkommen auf der Startseite</h1>
+    <p>Hier ist ein bisschen Text, um die Startseite zu füllen.</p>
+    
+    <!-- Fünf Artikel -->
+    <div class="article" onclick="location.href='seite1.html'">
+        <h2>Artikel Titel 1</h2>
+        <p>Dies ist eine kurze Beschreibung des Artikels 1. Klicke hier, um mehr zu erfahren.</p>
+    </div>
+
+    <div class="article" onclick="location.href='seite2.html'">
+        <h2>Artikel Titel 2</h2>
+        <p>Dies ist eine kurze Beschreibung des Artikels 2. Klicke hier, um mehr zu erfahren.</p>
+    </div>
+
+    <div class="article" onclick="location.href='seite3.html'">
+ <h2>Artikel Titel 3</h2>
+        <p>Dies ist eine kurze Beschreibung des Artikels 3. Klicke hier, um mehr zu erfahren.</p>
+    </div>
+
+    <div class="article" onclick="location.href='seite4.html'">
+        <h2>Artikel Titel 4</h2>
+        <p>Dies ist eine kurze Beschreibung des Artikels 4. Klicke hier, um mehr zu erfahren.</p>
+    </div>
+
+    <div class="article" onclick="location.href='seite5.html'">
+        <h2>Artikel Titel 5</h2>
+        <p>Dies ist eine kurze Beschreibung des Artikels 5. Klicke hier, um mehr zu erfahren.</p>
+    </div>
+
+    <button class="btn" onclick="location.href='index.html'">Zurück zur Startseite</button>
+    
+    <script src="script.js"></script>
+    <script>
+        const effectElement = document.getElementById('effect');
+
+        document.addEventListener('mousemove', (event) => {
+            const x = event.clientX;
+            const y = event.clientY;
+
+            // Erstelle einen radialen Gradienteneffekt um die Maus
+            effectElement.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255, 255, 0, 0.5), transparent 70%)`;
+        });
+    </script>
+</body>
+</html>
